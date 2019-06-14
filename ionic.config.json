@@ -1,0 +1,7 @@
+{
+  "name": "myAppgeo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

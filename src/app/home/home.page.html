@@ -1,0 +1,276 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Geolocation App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      User Current Location continuously upddating in background
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Latitude
+    </ion-col>
+    <ion-col>
+      {{userLocation.latitude}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Longitude
+    </ion-col>
+    <ion-col>
+      {{userLocation.longitude}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Country Code
+    </ion-col>
+    <ion-col>
+      {{userLocation.countryCode}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Country Name
+    </ion-col>
+    <ion-col>
+      {{userLocation.countryName}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Postal Code
+    </ion-col>
+    <ion-col>
+      {{userLocation.postalCode}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Administrative Area
+    </ion-col>
+    <ion-col>
+      {{userLocation.administrativeArea}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Sub Administrative Area
+    </ion-col>
+    <ion-col>
+      {{userLocation.subAdministrativeArea}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Locality
+    </ion-col>
+    <ion-col>
+      {{userLocation.locality}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Sub Locality
+    </ion-col>
+    <ion-col>
+      {{userLocation.subLocality}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Thoroughfare
+    </ion-col>
+    <ion-col>
+      {{userLocation.thoroughfare}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Sub Thoroughfare
+    </ion-col>
+    <ion-col>
+      {{userLocation.subThoroughfare}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocation">
+    <ion-col>
+      Areas Of Interest
+    </ion-col>
+    <ion-col>
+      {{userLocation.areasOfInterest}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userCity">
+    <ion-col>
+      Formatted address of user Current location which is continuously updating
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userCity">
+    <ion-col>
+      {{userCity}}
+    </ion-col>
+  </ion-row>
+  <div class="line"></div>
+  <ion-row>
+    <ion-col>
+      <ion-input clearInput type="text" placeholder="Enter your location here for getting Latitude and Longitude" [(ngModel)]="location" class="input"
+        padding-horizontal clear-input="true"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" fill="outline" color="undefined" (click)="forwardGeocode(location)" class="btn-color">
+        <strong>Forward Geocode </strong>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="lat">
+    <ion-col>
+        Latitude and Longitude for this location
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="lat">
+    <ion-col>
+        Latitude : {{lat}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="lat">
+    <ion-col>
+        Longitude : {{lng}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-input clearInput type="text" placeholder="Enter lat here" [(ngModel)]="latEnter" class="input" padding-horizontal clear-input="true"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-input clearInput type="text" placeholder="Enter lng here" [(ngModel)]="lngEnter" class="input" padding-horizontal clear-input="true"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" fill="outline" color="undefined" (click)="reverseGeocode(latEnter,lngEnter)" class="btn-color">
+        <strong>Reverse Geocode </strong>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="latLngResult">
+    <ion-col>
+      Location For this Latitude and Longitude
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="latLngResult">
+    <ion-col>
+      {{this.latLngResult}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+          Location For this Latitude and Longitude
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Latitude
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.latitude}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Longitude
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.longitude}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Country Code
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.countryCode}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Country Name
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.countryName}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Postal Code
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.postalCode}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Administrative Area
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.administrativeArea}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Sub Administrative Area
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.subAdministrativeArea}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Locality
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.locality}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Sub Locality
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.subLocality}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Thoroughfare
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.thoroughfare}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Sub Thoroughfare
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.subThoroughfare}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="userLocationFromLatLng">
+      <ion-col>
+        Areas Of Interest
+      </ion-col>
+      <ion-col>
+        {{userLocationFromLatLng.areasOfInterest}}
+      </ion-col>
+    </ion-row>
+</ion-content>
