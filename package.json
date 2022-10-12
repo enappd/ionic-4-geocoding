@@ -28,7 +28,7 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.1.0",
     "cordova-android": "8.0.0",
-    "cordova-plugin-add-swift-support": "1.6.0",
+    "cordova-plugin-add-swift-support": "1.7.2",
     "cordova-plugin-geofence": "0.7.0",
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-nativegeocoder": "3.2.2",
